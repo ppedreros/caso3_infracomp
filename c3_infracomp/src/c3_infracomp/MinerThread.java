@@ -102,14 +102,18 @@ public class MinerThread extends Thread {
                 System.out.println("Tiempo de búsqueda: " + (endTime - startTime) + " ms");
                 continuarBuscando = false; // Detiene el bucle
             } else {
-                v = incrementarV(v);
-                if (v.equals("mzzzzzz") || v.equals("zzzzzzz"))
-            	{
-                    continuarBuscando = false;
-                    long endTime = System.currentTimeMillis();
-                    System.out.println("Thread"+id+" no encontró una solución | Tiempo de búsqueda: "+ (endTime - startTime) + " ms");
+            	if(Main.nThreads == 1) {
+            		v = incrementarV(v);
             	}
-                
+            	else {
+            		v = incrementarV(v);
+                    if (v.equals("mzzzzzz") || v.equals("zzzzzzz"))
+                	{
+                        continuarBuscando = false;
+                        long endTime = System.currentTimeMillis();
+                        System.out.println("Thread"+id+" no encontró una solución | Tiempo de búsqueda: "+ (endTime - startTime) + " ms");
+                	}	
+            	}                
             }
         }
     }

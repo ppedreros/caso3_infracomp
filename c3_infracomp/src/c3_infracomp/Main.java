@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static volatile boolean found = false;
+    public static int nThreads;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -18,7 +19,7 @@ public class Main {
         int nBitsCero = scanner.nextInt();
         
         System.out.println("Ingrese si quiere correr 1 o 2 threads:");
-        int nThreads = scanner.nextInt();
+        nThreads = scanner.nextInt();
         
         scanner.close();
 
