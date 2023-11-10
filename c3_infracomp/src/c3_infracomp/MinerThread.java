@@ -104,6 +104,12 @@ public class MinerThread extends Thread {
             } else {
             	if(Main.nThreads == 1) {
             		v = incrementarV(v);
+                    if (v.equals("zzzzzzz"))
+                	{
+                        continuarBuscando = false;
+                        long endTime = System.currentTimeMillis();
+                        System.out.println("Thread"+id+" no encontró una solución | Tiempo de búsqueda: "+ (endTime - startTime) + " ms");
+                	}
             	}
             	else {
             		v = incrementarV(v);
